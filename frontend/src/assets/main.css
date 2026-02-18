@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-surface-900 text-neutral-200 antialiased;
+  }
+}
+
+@layer components {
+  .link-underline {
+    @apply border-b border-accent/50 hover:border-accent transition-colors;
+  }
+}

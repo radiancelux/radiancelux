@@ -1,0 +1,11 @@
+{
+  "name": "radiancelux",
+  "private": true,
+  "description": "Radiance Lux Technologies LLC — Vue + Laravel monorepo",
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && php artisan serve",
+    "build": "cd frontend && npm install && npm run build",
+    "build:copy": "node -e \"const fs=require('fs'),path=require('path'); const src=path.join('frontend','dist'), dest=path.join('backend','public'); if(!fs.existsSync(src)) throw new Error('Run npm run build first'); fs.readdirSync(src).forEach(n=>{ const s=path.join(src,n), d=path.join(dest,n); if(fs.statSync(s).isDirectory()) fs.cpSync(s,d,{recursive:true}); else fs.copyFileSync(s,d); }); console.log('Copied frontend/dist to backend/public');\""
+  }
+}
