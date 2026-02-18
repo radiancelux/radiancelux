@@ -20,7 +20,7 @@ nixPkgs = [
   "php83Extensions.ftp",
   "php83Extensions.opcache",
   "nginx",
-  "supervisor",
+  "python311Packages.supervisor",
   "nodejs_22",
   "npm-9_x"
 ]
