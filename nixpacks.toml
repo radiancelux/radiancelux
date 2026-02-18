@@ -12,12 +12,12 @@ cmds = [
 ]
 
 [phases.setup]
-nixPkgs = ["php83", "php83Extensions.pdo_mysql", "php83Extensions.mbstring", "php83Extensions.xml", "php83Extensions.bcmath", "php83Extensions.curl", "php83Extensions.zip", "php83Extensions.intl", "php83Extensions.fileinfo", "php83Extensions.openssl", "php83Extensions.tokenizer", "php83Extensions.dom", "nodejs_20", "npm-9_x", "nginx", "composer"]
+nixPkgs = ["php83", "php83Extensions.pdo_mysql", "php83Extensions.mbstring", "php83Extensions.xml", "php83Extensions.bcmath", "php83Extensions.curl", "php83Extensions.zip", "php83Extensions.intl", "php83Extensions.fileinfo", "php83Extensions.openssl", "php83Extensions.tokenizer", "php83Extensions.dom", "nodejs_20", "npm-9_x", "nginx", "php83Packages.composer"]
 
-[static]
+[staticAssets]
 # Use a custom nginx configuration to avoid duplicate location "/"
 # This replaces the default Nixpacks nginx template
-nginx_config = '''
+"nginx.template.conf" = '''
 server {
     listen 80;
     listen [::]:80;
