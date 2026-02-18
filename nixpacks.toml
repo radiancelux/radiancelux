@@ -14,6 +14,20 @@ cmds = [
 [phases.setup]
 nixPkgs = ["php83", "php83Extensions.pdo_mysql", "php83Extensions.mbstring", "php83Extensions.xml", "php83Extensions.bcmath", "php83Extensions.curl", "php83Extensions.zip", "php83Extensions.intl", "php83Extensions.fileinfo", "php83Extensions.openssl", "php83Extensions.tokenizer", "php83Extensions.dom", "nodejs_20", "npm-9_x", "nginx", "php83Packages.composer"]
 
+[phases.build]
+cmds = [
+    "composer install --ignore-platform-reqs --no-dev --optimize-autoloader",
+    "npm ci",
+    "npm run build",
+    "php artisan config:cache",
+    "php artisan route:cache",
+    "php artisan view:cache",
+    "cp /assets/nginx.template.conf /app/nginx.conf"
+]
+
+[phases.setup]
+nixPkgs = ["php83", "php83Extensions.pdo_mysql", "php83Extensions.mbstring", "php83Extensions.xml", "php83Extensions.bcmath", "php83Extensions.curl", "php83Extensions.zip", "php83Extensions.intl", "php83Extensions.fileinfo", "php83Extensions.openssl", "php83Extensions.tokenizer", "php83Extensions.dom", "nodejs_20", "npm-9_x", "nginx", "php83Packages.composer"]
+
 [staticAssets]
 # Use a custom nginx configuration to avoid duplicate location "/"
 # This replaces the default Nixpacks nginx template
@@ -28,7 +42,7 @@ events {
 }
 
 http {
-    include    $!{nginx}/conf/mime.types;
+    include    /etc/nginx/mime.types;
     index    index.html index.htm index.php;
 
     default_type application/octet-stream;
@@ -42,8 +56,8 @@ http {
     server_names_hash_bucket_size 128;
 
     server {
-        listen ${PORT};
-        listen [::]:${PORT};
+        listen 80;
+        listen [::]:80;
         server_name localhost;
 
         root /app/public;
@@ -66,8 +80,8 @@ http {
         location ~ \.php$ {
             fastcgi_pass 127.0.0.1:9000;
             fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
-            include $!{nginx}/conf/fastcgi_params;
-            include $!{nginx}/conf/fastcgi.conf;
+            include /etc/nginx/fastcgi_params;
+            include /etc/nginx/fastcgi.conf;
         }
 
         location ~ /\.(?!well-known).* {
