@@ -12,15 +12,39 @@ cmds = [
 ]
 
 [phases.setup]
-nixPkgs = ["php83", "php83Extensions.pdo_mysql", "php83Extensions.mbstring", "php83Extensions.xml", "php83Extensions.bcmath", "php83Extensions.curl", "php83Extensions.zip", "php83Extensions.intl", "php83Extensions.fileinfo", "php83Extensions.openssl", "php83Extensions.tokenizer", "php83Extensions.dom", "nodejs_20", "npm-9_x", "nginx"]
+nixPkgs = ["php83", "php83Extensions.pdo_mysql", "php83Extensions.mbstring", "php83Extensions.xml", "php83Extensions.bcmath", "php83Extensions.curl", "php83Extensions.zip", "php83Extensions.intl", "php83Extensions.fileinfo", "php83Extensions.openssl", "php83Extensions.tokenizer", "php83Extensions.dom", "nodejs_20", "npm-9_x", "nginx", "composer"]
 
 [static]
-# Disable default nginx config to prevent duplicate location
-# We'll use custom nginx config instead
+# Use a custom nginx configuration to avoid duplicate location "/"
+# This replaces the default Nixpacks nginx template
+nginx_config = '''
+server {
+    listen 80;
+    listen [::]:80;
+    server_name _;
+    root /app/public;
+    index index.php;
 
-[start]
-cmd = """mkdir -p /run/php && \
-sed -i 's/listen = .*/listen = 127.0.0.1:9000/' /etc/php/php-fpm.d/www.conf && \
-php-fpm -D && \
-nginx -c /app/nginx.conf -g 'daemon off;'"""
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+'''
 
