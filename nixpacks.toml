@@ -1,0 +1,26 @@
+# Nixpacks configuration for Laravel + Vue SPA
+# Fixes the duplicate location "/" error by providing custom nginx config
+
+[phases.build]
+cmds = [
+    "composer install --ignore-platform-reqs --no-dev --optimize-autoloader",
+    "npm ci",
+    "npm run build",
+    "php artisan config:cache",
+    "php artisan route:cache",
+    "php artisan view:cache"
+]
+
+[phases.setup]
+nixPkgs = ["php83", "php83Extensions.pdo_mysql", "php83Extensions.mbstring", "php83Extensions.xml", "php83Extensions.bcmath", "php83Extensions.curl", "php83Extensions.zip", "php83Extensions.intl", "php83Extensions.fileinfo", "php83Extensions.openssl", "php83Extensions.tokenizer", "php83Extensions.dom", "nodejs_20", "npm-9_x", "nginx"]
+
+[static]
+# Disable default nginx config to prevent duplicate location
+# We'll use custom nginx config instead
+
+[start]
+cmd = """mkdir -p /run/php && \
+sed -i 's/listen = .*/listen = 127.0.0.1:9000/' /etc/php/php-fpm.d/www.conf && \
+php-fpm -D && \
+nginx -c /app/nginx.conf -g 'daemon off;'"""
+
