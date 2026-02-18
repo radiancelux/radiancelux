@@ -13,7 +13,6 @@ nixPkgs = [
   "php83Extensions.zip",
   "php83Extensions.bcmath",
   "php83Extensions.ctype",
-  "php83Extensions.json",
   "php83Extensions.mysqli",
   "php83Extensions.pdo_mysql",
   "php83Extensions.gd",
