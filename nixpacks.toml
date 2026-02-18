@@ -1,13 +1,45 @@
 [phases.setup]
 nixPkgs = [
-  "...",
-  "supervisor"
+  "php83",
+  "php83Extensions.pdo",
+  "php83Extensions.pdo_sqlite",
+  "php83Extensions.sqlite3",
+  "php83Extensions.mbstring",
+  "php83Extensions.tokenizer",
+  "php83Extensions.xml",
+  "php83Extensions.curl",
+  "php83Extensions.fileinfo",
+  "php83Extensions.openssl",
+  "php83Extensions.zip",
+  "php83Extensions.bcmath",
+  "php83Extensions.ctype",
+  "php83Extensions.json",
+  "php83Extensions.mysqli",
+  "php83Extensions.pdo_mysql",
+  "php83Extensions.gd",
+  "php83Extensions.exif",
+  "php83Extensions.ftp",
+  "php83Extensions.opcache",
+  "nginx",
+  "supervisor",
+  "nodejs_22",
+  "npm-9_x"
+]
+
+[phases.install]
+cmds = [
+    "cd /app/backend && composer install --no-interaction --prefer-dist --optimize-autoloader",
+    "cd /app/frontend && npm ci"
 ]
 
 [phases.build]
 cmds = [
+    "cd /app/frontend && npm run build",
+    "mkdir -p /app/backend/public && cp -r /app/frontend/dist/* /app/backend/public/",
     "mkdir -p /etc/supervisor/conf.d",
     "mkdir -p /run/php",
+    "mkdir -p /var/log/nginx",
+    "mkdir -p /var/lib/nginx",
     "cp /assets/start.sh /start.sh",
     "cp /assets/supervisord.conf /etc/supervisor/supervisord.conf",
     "cp /assets/worker-nginx.conf /etc/supervisor/conf.d/nginx.conf",
@@ -39,6 +71,9 @@ mkdir -p /var/www/html/storage/framework/sessions
 mkdir -p /var/www/html/storage/framework/views
 mkdir -p /var/www/html/storage/logs
 mkdir -p /var/www/html/bootstrap/cache
+
+# Copy backend to working directory
+cp -r /app/backend/* /var/www/html/
 
 # Set proper permissions
 chown -R www-data:www-data /var/www/html/storage
