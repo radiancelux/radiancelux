@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+</script>
 
 <template>
   <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
@@ -141,5 +143,13 @@
       We’d rather get the right solution than the most fashionable stack. Need
       something not listed? Ask.
     </p>
+    <div class="mt-10 flex justify-center">
+      <RouterLink
+        to="/contact"
+        class="inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-surface-900 transition hover:bg-accent-hover"
+      >
+        Get in touch
+      </RouterLink>
+    </div>
   </div>
 </template>

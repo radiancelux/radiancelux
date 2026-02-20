@@ -1,36 +1,50 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
+import ProcessDiagram from "../components/ProcessDiagram.vue";
+
+// Replace with real testimonials when available
+const testimonials = [
+  {
+    quote: "They delivered on time and communicated clearly every step of the way. Exactly what we needed.",
+    attribution: "— Former client, product lead",
+  },
+  {
+    quote: "Senior-level execution without the big-agency overhead. We’ll work with them again.",
+    attribution: "— Former client, startup",
+  },
+];
 </script>
 
 <template>
   <div>
     <section
-      class="relative overflow-hidden border-b border-surface-700 bg-surface-800/50 px-4 py-20 sm:px-6 sm:py-28"
+      class="hero-section relative overflow-hidden border-b border-surface-700 bg-surface-800/50 px-4 py-20 sm:px-6 sm:py-28"
     >
       <div class="mx-auto max-w-3xl text-center">
         <p class="text-sm font-medium uppercase tracking-widest text-accent">
-          Need someone who'll actually ship?
+          Veteran-owned · TS/SCI cleared
         </p>
         <h1 class="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          We build cool shit.
+          Custom software for consumer, B2B, and government.
         </h1>
-        <p class="mt-3 text-xl font-medium text-accent sm:text-2xl">
-          Tell us what you need. We'll ship it.
+        <p class="mt-3 text-xl font-medium text-neutral-300 sm:text-2xl">
+          Senior-only team. No junior devs, no legacy baggage—just delivery.
         </p>
         <p class="mt-4 text-lg text-neutral-400">
-          Clear goals and solid requirements, with room to iterate from idea to
-          production. Whether you bring a detailed spec or a problem to solve,
-          we're built to deliver. No micromanagement; just people who ship.
+          We’re most experienced in consumer-facing products—apps, marketplaces,
+          and web—and equally at home in B2B and government. Web, mobile, and
+          backend, from idea to production. Mission discipline and clearance
+          when you need it. Clear goals, room to iterate. No micromanagement; we ship.
         </p>
         <p class="mt-6 text-sm text-neutral-500">
-          Veteran-owned and operated · TS/SCI cleared
+          San Antonio, TX · Remote across the US · Government and DoD welcome
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
           <RouterLink
             to="/contact"
             class="inline-flex items-center rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-surface-900 transition hover:bg-accent-hover"
           >
-            Start a conversation
+            Schedule a discovery call
           </RouterLink>
           <RouterLink
             to="/services"
@@ -39,6 +53,29 @@ import { RouterLink } from "vue-router";
             What we do
           </RouterLink>
         </div>
+      </div>
+    </section>
+
+    <section class="border-b border-surface-700 bg-surface-800/40 px-4 py-12 sm:px-6 sm:py-16">
+      <div class="mx-auto max-w-5xl">
+        <h2 class="text-center text-xl font-semibold text-white sm:text-2xl">
+          Our process
+        </h2>
+        <p class="mt-1 text-center text-sm text-neutral-400">
+          From idea to production—clear phases, no surprises. Hover or tap a step.
+        </p>
+        <ProcessDiagram class="mt-8" />
+      </div>
+    </section>
+
+    <section class="border-b border-surface-700 bg-surface-900/80 px-4 py-8 sm:px-6">
+      <div class="mx-auto max-w-4xl">
+        <p class="text-center text-xs font-medium uppercase tracking-widest text-neutral-500">
+          Trusted by teams building
+        </p>
+        <p class="mt-2 text-center text-sm text-neutral-400 sm:text-base">
+          Consumer products · B2B & SaaS · Government & DoD
+        </p>
       </div>
     </section>
 
@@ -97,6 +134,45 @@ import { RouterLink } from "vue-router";
         >
           How we work →
         </RouterLink>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
+      <h2 class="text-center text-2xl font-semibold text-white sm:text-3xl">
+        What people say
+      </h2>
+      <div class="mt-10 grid gap-8 sm:grid-cols-2">
+        <blockquote
+          v-for="(t, i) in testimonials"
+          :key="i"
+          class="rounded-xl border border-surface-700 bg-surface-800/50 p-6"
+        >
+          <p class="text-neutral-300 italic">"{{ t.quote }}"</p>
+          <p class="mt-3 text-sm text-neutral-500">{{ t.attribution }}</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="border-t border-surface-700 bg-surface-800/30 px-4 py-16 sm:px-6 sm:py-20">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-xl font-semibold text-white sm:text-2xl">Ready to ship?</h2>
+        <p class="mt-2 text-neutral-400">
+          Schedule a quick call or send us a message. We’ll get back to you within a business day.
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-4">
+          <RouterLink
+            to="/contact"
+            class="inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-surface-900 transition hover:bg-accent-hover"
+          >
+            Schedule a discovery call
+          </RouterLink>
+          <RouterLink
+            to="/work"
+            class="inline-flex rounded-lg border border-surface-600 bg-transparent px-5 py-2.5 text-sm font-medium text-neutral-300 transition hover:border-surface-500 hover:bg-surface-700"
+          >
+            See our work
+          </RouterLink>
+        </div>
       </div>
     </section>
   </div>

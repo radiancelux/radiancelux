@@ -10,7 +10,9 @@
   --color-neutral-500: #737373;
   --color-neutral-600: #525252;
   --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
   --color-accent-light: #fbbf24;
+  --color-accent-muted: rgba(245, 158, 11, 0.15);
 }
 
 @layer base {
@@ -25,5 +27,9 @@
 @layer components {
   .link-underline {
     @apply border-b border-accent/50 hover:border-accent transition-colors;
+  }
+  .hero-section {
+    background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(245, 158, 11, 0.08), transparent),
+      linear-gradient(to bottom, var(--color-surface-800) 0%, transparent 100%);
   }
 }

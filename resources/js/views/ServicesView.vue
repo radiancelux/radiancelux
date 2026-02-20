@@ -6,8 +6,22 @@ import { RouterLink } from 'vue-router'
   <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
     <h1 class="text-3xl font-bold text-white sm:text-4xl">Services</h1>
     <p class="mt-4 text-neutral-400">
-      What we offer as a consulting shop. We work as a team of developers under Radiance Lux; engagements can be solo or staffed to fit the project.
+      What we offer as a consulting shop. We work as a lean, senior-level team under Radiance Lux; engagements can be solo or staffed to fit the project.
     </p>
+
+    <p class="mt-4 text-sm text-neutral-500">
+      <strong class="text-neutral-400">Tech stack:</strong> Vue, React, Flutter, Go, Laravel, Python; AWS, Docker, PostgreSQL, Redis. We fit your stack when it makes sense—see <RouterLink to="/skills" class="text-accent hover:underline">Skills &amp; stack</RouterLink> for the full picture.
+    </p>
+
+    <section class="mt-10 rounded-xl border border-surface-700 bg-surface-800/50 p-6 sm:p-8">
+      <h2 class="text-lg font-semibold text-accent">How we engage</h2>
+      <ul class="mt-3 space-y-2 text-neutral-400">
+        <li><strong class="text-neutral-300">Project-based</strong> — Fixed scope and timeline; we own delivery end to end.</li>
+        <li><strong class="text-neutral-300">Hourly consulting</strong> — Advisory, code reviews, or hands-on support as needed.</li>
+        <li><strong class="text-neutral-300">Monthly retainer</strong> — Ongoing capacity for product work, maintenance, or leadership.</li>
+        <li><strong class="text-neutral-300">Staff augmentation</strong> — We slot into your team for a sprint or longer; same discipline, your process.</li>
+      </ul>
+    </section>
 
     <div class="mt-12 space-y-10">
       <section class="rounded-xl border border-surface-700 bg-surface-800/50 p-6 sm:p-8">
@@ -54,12 +68,20 @@ import { RouterLink } from 'vue-router'
     </div>
 
     <p class="mt-12 text-center text-neutral-500">
-      Ideal for: startups, agencies, and orgs that need senior hands and clear delivery. We’re veteran-owned and operated and TS/SCI cleared—government, defense, and regulated work is in our wheelhouse.
+      Ideal for: consumer products, startups, agencies, and orgs that need senior
+      hands and clear delivery. Veteran-owned and TS/SCI cleared—government,
+      defense, and regulated work is in our wheelhouse.
     </p>
 
-    <div class="mt-8 text-center">
-      <RouterLink to="/contact" class="text-accent hover:underline">
-        Get in touch →
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      <RouterLink
+        to="/contact"
+        class="inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-surface-900 transition hover:bg-accent-hover"
+      >
+        Schedule a discovery call
+      </RouterLink>
+      <RouterLink to="/skills" class="inline-flex rounded-lg border border-surface-600 px-5 py-2.5 text-sm font-medium text-neutral-300 transition hover:border-surface-500 hover:bg-surface-700">
+        See our stack →
       </RouterLink>
     </div>
   </div>
