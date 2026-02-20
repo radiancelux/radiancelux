@@ -2,6 +2,8 @@
 import { ref, reactive } from 'vue'
 
 const email = 'radiancelux@gmail.com'
+// Replace with your Calendly or Cal.com link, or set to '' to hide the button
+const calendlyUrl = 'https://calendly.com/radiancelux'
 
 const sending = ref(false)
 const sent = ref(false)
@@ -47,11 +49,23 @@ async function submit() {
   <div class="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-16">
     <h1 class="text-3xl font-bold text-white sm:text-4xl">Contact</h1>
     <p class="mt-4 text-neutral-400">
-      Have a project or a problem? Send us a message below or email directly. We’re based in San Antonio and work remotely.
+      Have a project or a problem? Schedule a 15‑min call or send a message. We’re based in San Antonio, work remotely, and typically respond within one business day.
     </p>
 
+    <div v-if="calendlyUrl" class="mt-8">
+      <a
+        :href="calendlyUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-surface-900 transition hover:bg-accent-hover"
+      >
+        Schedule a 15‑min discovery call
+      </a>
+    </div>
+
     <div class="mt-10 rounded-xl border border-surface-700 bg-surface-800/50 p-6 sm:p-8">
-      <p class="mb-6 text-sm text-neutral-500">
+      <h2 class="text-lg font-semibold text-white">Or send us a message</h2>
+      <p class="mt-1 mb-6 text-sm text-neutral-500">
         Prefer email? Write to
         <a :href="`mailto:${email}`" class="text-accent hover:underline">{{ email }}</a>
       </p>

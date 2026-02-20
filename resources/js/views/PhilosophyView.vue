@@ -74,11 +74,17 @@ const principles = [
     </div>
 
     <p class="mt-12 text-center text-neutral-500">
-      These principles shape how we work. If this resonates, get in touch.
+      These principles shape how we work. If this resonates, let’s talk.
     </p>
-    <div class="mt-4 text-center">
-      <RouterLink to="/contact" class="text-accent hover:underline">
-        Get in touch →
+    <div class="mt-6 flex flex-wrap justify-center gap-4">
+      <RouterLink
+        to="/contact"
+        class="inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-surface-900 transition hover:bg-accent-hover"
+      >
+        Schedule a discovery call
+      </RouterLink>
+      <RouterLink to="/contact" class="text-sm text-accent hover:underline">
+        Or send a message →
       </RouterLink>
     </div>
   </div>

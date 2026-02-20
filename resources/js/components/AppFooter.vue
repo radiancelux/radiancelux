@@ -36,7 +36,7 @@ const email = 'radiancelux@gmail.com'
         </div>
       </div>
       <p class="mt-6 text-center text-xs text-neutral-600">
-        © {{ new Date().getFullYear() }} Radiance Lux Technologies LLC. We build cool shit.
+        © {{ new Date().getFullYear() }} Radiance Lux Technologies LLC. Custom software. Clear delivery. Veteran-led.
       </p>
     </div>
   </footer>

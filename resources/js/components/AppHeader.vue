@@ -7,9 +7,12 @@ const open = ref(false)
 const nav = [
   { path: '/', label: 'Home' },
   { path: '/services', label: 'Services' },
+  { path: '/about', label: 'About' },
   { path: '/team', label: 'Our Team' },
+  { path: '/work', label: 'Work' },
   { path: '/skills', label: 'Skills' },
   { path: '/philosophy', label: 'How We Work' },
+  { path: '/resources', label: 'Resources' },
   { path: '/contact', label: 'Contact' },
 ]
 
