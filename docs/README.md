@@ -36,3 +36,7 @@ Matches the former Laravel contact endpoint:
 ## Legacy docs
 
 Older planning files (`WEBSITE_PLAN.md`, `FEEDBACK-PLAN.md`, etc.) describe the pre-migration Laravel site and are kept for history only.
+
+## Production cutover
+
+See **[GO_LIVE.md](GO_LIVE.md)** for custom domain, Resend DNS, and Cloudflare environment variable setup.
