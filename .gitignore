@@ -1,8 +1,9 @@
 *.log
 .DS_Store
 .env
-.env.backup
-.env.production
+.env.*
+!.env.example
+.dev.vars
 .phpactor.json
 .phpunit.result.cache
 /.fleet
@@ -13,12 +14,12 @@
 /.zed
 /auth.json
 /node_modules
+/dist
+/public/open-source-projects.json
 /public/build
 /public/hot
-/public/storage
-/storage/*.key
-/storage/pail
 /vendor
 Homestead.json
 Homestead.yaml
 Thumbs.db
+.wrangler

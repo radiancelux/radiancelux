@@ -6,13 +6,9 @@ const open = ref(false)
 
 const nav = [
   { path: '/', label: 'Home' },
-  { path: '/services', label: 'Services' },
-  { path: '/about', label: 'About' },
-  { path: '/team', label: 'Our Team' },
   { path: '/work', label: 'Work' },
-  { path: '/skills', label: 'Skills' },
-  { path: '/philosophy', label: 'How We Work' },
-  { path: '/resources', label: 'Resources' },
+  { path: '/projects', label: 'Projects' },
+  { path: '/services', label: 'Services' },
   { path: '/contact', label: 'Contact' },
 ]
 
@@ -46,6 +42,12 @@ onUnmounted(() => {
         >
           {{ item.label }}
         </RouterLink>
+        <RouterLink
+          to="/contact"
+          class="rounded-lg bg-accent px-3 py-1.5 text-sm font-medium text-surface-900 transition hover:bg-accent-hover"
+        >
+          Start a project
+        </RouterLink>
       </nav>
 
       <button
@@ -61,10 +63,7 @@ onUnmounted(() => {
       </button>
     </div>
 
-    <div
-      v-show="open"
-      class="border-t border-surface-700 bg-surface-800 md:hidden"
-    >
+    <div v-show="open" class="border-t border-surface-700 bg-surface-800 md:hidden">
       <div class="flex flex-col gap-1 px-4 py-3">
         <RouterLink
           v-for="item in nav"
@@ -75,6 +74,13 @@ onUnmounted(() => {
           @click="close"
         >
           {{ item.label }}
+        </RouterLink>
+        <RouterLink
+          to="/contact"
+          class="rounded bg-accent px-3 py-2 text-center text-sm font-medium text-surface-900"
+          @click="close"
+        >
+          Start a project
         </RouterLink>
       </div>
     </div>

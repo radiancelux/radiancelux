@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const email = 'radiancelux@gmail.com'
+const year = new Date().getFullYear()
 </script>
 
 <template>
@@ -8,11 +9,11 @@ const email = 'radiancelux@gmail.com'
       <div class="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
         <div class="text-center sm:text-left">
           <p class="font-semibold text-white">Radiance Lux Technologies LLC</p>
-          <p class="mt-1 text-sm text-neutral-500">Veteran-owned and operated · San Antonio, TX · Remote-friendly</p>
+          <p class="mt-1 text-sm text-neutral-500">Veteran-owned · San Antonio metro · Remote-friendly</p>
         </div>
         <div class="flex flex-wrap justify-center gap-6">
           <a
-            href="https://www.linkedin.com/in/humphreysbrett/"
+            href="https://www.linkedin.com/in/humphreysbrett"
             target="_blank"
             rel="noopener noreferrer"
             class="text-sm text-neutral-400 transition hover:text-accent"
@@ -28,15 +29,20 @@ const email = 'radiancelux@gmail.com'
             GitHub
           </a>
           <a
-            :href="`mailto:${email}`"
+            href="https://x.com/radiance_lux"
+            target="_blank"
+            rel="noopener noreferrer"
             class="text-sm text-neutral-400 transition hover:text-accent"
           >
+            X @radiance_lux
+          </a>
+          <a :href="`mailto:${email}`" class="text-sm text-neutral-400 transition hover:text-accent">
             {{ email }}
           </a>
         </div>
       </div>
       <p class="mt-6 text-center text-xs text-neutral-600">
-        © {{ new Date().getFullYear() }} Radiance Lux Technologies LLC. Custom software. Clear delivery. Veteran-led.
+        © {{ year }} Radiance Lux Technologies LLC. Open for contracts.
       </p>
     </div>
   </footer>

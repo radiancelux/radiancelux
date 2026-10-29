@@ -18,6 +18,5 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": false
   },
-  "include": ["resources/js/**/*.ts", "resources/js/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["resources/js/**/*.ts", "resources/js/**/*.vue"]
 }
