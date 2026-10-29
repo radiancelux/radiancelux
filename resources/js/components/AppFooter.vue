@@ -42,7 +42,7 @@ const year = new Date().getFullYear()
         </div>
       </div>
       <p class="mt-6 text-center text-xs text-neutral-600">
-        © {{ year }} Radiance Lux Technologies LLC. Open for contracts.
+        © {{ year }} Radiance Lux Technologies LLC. Open for contract work.
       </p>
     </div>
   </footer>

@@ -7,8 +7,9 @@ withDefaults(
     description?: string
   }>(),
   {
-    title: 'Ready to work together?',
-    description: 'Radiance Lux is open for contracts — frontend, mobile, and fractional engineering leadership.',
+    title: 'Ready to build something together?',
+    description:
+      "I'm open for contract work through Radiance Lux — frontend architecture, web and mobile apps, and fractional engineering leadership.",
   },
 )
 </script>

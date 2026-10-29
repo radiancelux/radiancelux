@@ -18,7 +18,7 @@ const router = createRouter({
 })
 
 router.afterEach((to) => {
-  document.title = to.meta.title ? `${to.meta.title} | Radiance Lux` : 'Radiance Lux Technologies'
+  document.title = to.meta.title ? `${to.meta.title} · Radiance Lux` : 'Brett Humphreys · Radiance Lux'
 })
 
 export default router
