@@ -1,179 +1,90 @@
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
-import ProcessDiagram from "../components/ProcessDiagram.vue";
+import { RouterLink } from 'vue-router'
+import StartProjectCta from '../components/StartProjectCta.vue'
 
-// Replace with real testimonials when available
-const testimonials = [
-  {
-    quote: "They delivered on time and communicated clearly every step of the way. Exactly what we needed.",
-    attribution: "— Former client, product lead",
-  },
-  {
-    quote: "Senior-level execution without the big-agency overhead. We’ll work with them again.",
-    attribution: "— Former client, startup",
-  },
-];
+const resumeUrl = '/Brett_Humphreys_Resume.pdf'
+
+const skills = [
+  'React, Next.js, Vue 3 (Pinia), Ionic, Vuetify, Tailwind, shadcn/ui, TanStack Query, PWAs, design systems, Figma-to-code, WCAG/508',
+  'TypeScript, JavaScript, Dart, Go, PHP, C#, SQL',
+  'React Native, Flutter, Capacitor, .NET MAUI',
+  'Vitest, Playwright, MSW · Vite, pnpm, GitHub Actions, Docker, AI-assisted development',
+]
 </script>
 
 <template>
   <div>
-    <section
-      class="hero-section relative overflow-hidden border-b border-surface-700 bg-surface-800/50 px-4 py-20 sm:px-6 sm:py-28"
-    >
+    <section class="border-b border-surface-700 bg-surface-800/50 px-4 py-16 sm:px-6 sm:py-24">
       <div class="mx-auto max-w-3xl text-center">
-        <p class="text-sm font-medium uppercase tracking-widest text-accent">
-          Veteran-owned · TS/SCI cleared
-        </p>
-        <h1 class="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          Custom software for consumer, B2B, and government.
+        <p class="text-sm font-medium uppercase tracking-widest text-accent">Veteran-owned · San Antonio metro · Remote</p>
+        <h1 class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Senior / Staff Frontend Engineer and Engineering Manager
         </h1>
-        <p class="mt-3 text-xl font-medium text-neutral-300 sm:text-2xl">
-          Senior-only team. No junior devs, no legacy baggage—just delivery.
-        </p>
-        <p class="mt-4 text-lg text-neutral-400">
-          We’re most experienced in consumer-facing products—apps, marketplaces,
-          and web—and equally at home in B2B and government. Web, mobile, and
-          backend, from idea to production. Mission discipline and clearance
-          when you need it. Clear goals, room to iterate. No micromanagement; we ship.
-        </p>
-        <p class="mt-6 text-sm text-neutral-500">
-          San Antonio, TX · Remote across the US · Government and DoD welcome
+        <p class="mt-2 text-lg text-neutral-300">Retired U.S. Army Major · Brett Humphreys</p>
+        <p class="mt-6 text-left text-neutral-400 sm:text-center sm:text-lg">
+          Hands-on frontend leader who led frontend for the Parler and PlayTV social platforms across web, iOS, and Android
+          (TypeScript, React, Vue.js), owning the client from design to production. Turned a one-person web codebase into a shared
+          client the team ships on, and unified web and mobile on one API/UI contract so features ship once. Set the review and quality
+          bar while leading about 14 engineers and contractors. Earlier he built and ran Parler's moderation system end to end, after 20
+          years in the Army.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
           <RouterLink
             to="/contact"
-            class="inline-flex items-center rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-surface-900 transition hover:bg-accent-hover"
-          >
-            Schedule a discovery call
-          </RouterLink>
-          <RouterLink
-            to="/services"
-            class="inline-flex items-center rounded-lg border border-surface-600 bg-transparent px-5 py-2.5 text-sm font-medium text-neutral-300 transition hover:border-surface-500 hover:bg-surface-700"
-          >
-            What we do
-          </RouterLink>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-b border-surface-700 bg-surface-800/40 px-4 py-12 sm:px-6 sm:py-16">
-      <div class="mx-auto max-w-5xl">
-        <h2 class="text-center text-xl font-semibold text-white sm:text-2xl">
-          Our process
-        </h2>
-        <p class="mt-1 text-center text-sm text-neutral-400">
-          From idea to production—clear phases, no surprises. Hover or tap a step.
-        </p>
-        <ProcessDiagram class="mt-8" />
-      </div>
-    </section>
-
-    <section class="border-b border-surface-700 bg-surface-900/80 px-4 py-8 sm:px-6">
-      <div class="mx-auto max-w-4xl">
-        <p class="text-center text-xs font-medium uppercase tracking-widest text-neutral-500">
-          Trusted by teams building
-        </p>
-        <p class="mt-2 text-center text-sm text-neutral-400 sm:text-base">
-          Consumer products · B2B & SaaS · Government & DoD
-        </p>
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-      <h2 class="text-center text-2xl font-semibold text-white sm:text-3xl">
-        Why work with us
-      </h2>
-      <div class="mt-12 grid gap-8 sm:grid-cols-3">
-        <div class="rounded-xl border border-surface-700 bg-surface-800/50 p-6">
-          <div class="text-2xl font-bold text-accent">Web & mobile</div>
-          <p class="mt-2 text-neutral-400">
-            Web frontends and mobile apps: any stack, any scope. We’ve led
-            UI/frontend architecture and shipped production apps to the stores.
-            SPAs, iOS/Android, real-time, BLE, or straightforward CRUD: tell us
-            what you need and we’ll build it.
-          </p>
-        </div>
-        <div class="rounded-xl border border-surface-700 bg-surface-800/50 p-6">
-          <div class="text-2xl font-bold text-accent">Backend & APIs</div>
-          <p class="mt-2 text-neutral-400">
-            APIs, services, integrations: Go, Laravel, Python, or whatever fits.
-            We’ve built production systems with PostgreSQL, Redis, Docker, and
-            tests. Tell us what you need and we’ll build it.
-          </p>
-        </div>
-        <div class="rounded-xl border border-surface-700 bg-surface-800/50 p-6">
-          <div class="text-2xl font-bold text-accent">Leadership & team</div>
-          <p class="mt-2 text-neutral-400">
-            We lead, mentor, or execute: whatever the engagement needs. Army and
-            tech leadership; contract work under the LLC is done by developers
-            who get the mission and ship.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section
-      class="border-t border-surface-700 bg-surface-800/30 px-4 py-16 sm:px-6 sm:py-20"
-    >
-      <div class="mx-auto max-w-3xl text-center">
-        <blockquote class="text-lg italic text-neutral-300 sm:text-xl">
-          “Opportunity is missed by most people because it is dressed in
-          overalls and looks like work.”
-        </blockquote>
-        <p class="mt-2 text-sm text-neutral-500">- Thomas Edison</p>
-        <p class="mt-6 text-neutral-400">
-          No vaporware. Solid, production-ready software, built one step at a
-          time, iteration by iteration.
-        </p>
-        <p class="mt-4 text-lg text-neutral-400">
-          Give us the problem and the guardrails. We’ll figure out the how.
-        </p>
-        <RouterLink
-          to="/philosophy"
-          class="mt-4 inline-block text-accent hover:underline"
-        >
-          How we work →
-        </RouterLink>
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-      <h2 class="text-center text-2xl font-semibold text-white sm:text-3xl">
-        What people say
-      </h2>
-      <div class="mt-10 grid gap-8 sm:grid-cols-2">
-        <blockquote
-          v-for="(t, i) in testimonials"
-          :key="i"
-          class="rounded-xl border border-surface-700 bg-surface-800/50 p-6"
-        >
-          <p class="text-neutral-300 italic">"{{ t.quote }}"</p>
-          <p class="mt-3 text-sm text-neutral-500">{{ t.attribution }}</p>
-        </blockquote>
-      </div>
-    </section>
-
-    <section class="border-t border-surface-700 bg-surface-800/30 px-4 py-16 sm:px-6 sm:py-20">
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-xl font-semibold text-white sm:text-2xl">Ready to ship?</h2>
-        <p class="mt-2 text-neutral-400">
-          Schedule a quick call or send us a message. We’ll get back to you within a business day.
-        </p>
-        <div class="mt-6 flex flex-wrap justify-center gap-4">
-          <RouterLink
-            to="/contact"
             class="inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-surface-900 transition hover:bg-accent-hover"
           >
-            Schedule a discovery call
+            Start a project
           </RouterLink>
           <RouterLink
             to="/work"
-            class="inline-flex rounded-lg border border-surface-600 bg-transparent px-5 py-2.5 text-sm font-medium text-neutral-300 transition hover:border-surface-500 hover:bg-surface-700"
+            class="inline-flex rounded-lg border border-surface-600 px-5 py-2.5 text-sm font-medium text-neutral-300 transition hover:border-surface-500 hover:bg-surface-700"
           >
-            See our work
+            Work history
           </RouterLink>
+          <a
+            :href="resumeUrl"
+            download
+            class="inline-flex rounded-lg border border-surface-600 px-5 py-2.5 text-sm font-medium text-neutral-300 transition hover:border-surface-500 hover:bg-surface-700"
+          >
+            Download résumé (PDF)
+          </a>
         </div>
       </div>
     </section>
+
+    <section class="mx-auto max-w-5xl px-4 py-14 sm:px-6">
+      <h2 class="text-2xl font-semibold text-white">About Radiance Lux</h2>
+      <p class="mt-4 text-neutral-400">
+        <strong class="text-neutral-300">Radiance Lux Technologies LLC</strong> is open for contracts — veteran-owned, based in the San
+        Antonio metro, working remotely across the U.S. We help teams ship web and mobile products with strong frontend architecture and
+        hands-on leadership when you need it.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4 text-sm">
+        <a href="https://www.linkedin.com/in/humphreysbrett" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline"
+          >LinkedIn</a
+        >
+        <a href="https://github.com/radiancelux" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">GitHub</a>
+        <a href="https://x.com/radiance_lux" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">X @radiance_lux</a>
+      </div>
+    </section>
+
+    <section class="border-t border-surface-700 bg-surface-900/50 px-4 py-14 sm:px-6">
+      <div class="mx-auto max-w-5xl">
+        <h2 class="text-2xl font-semibold text-white">Skills &amp; stack</h2>
+        <ul class="mt-6 space-y-3 text-neutral-400">
+          <li v-for="(line, i) in skills" :key="i">{{ line }}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-5xl px-4 py-14 sm:px-6">
+      <h2 class="text-2xl font-semibold text-white">Education</h2>
+      <p class="mt-4 text-neutral-400">
+        B.S. Health Sciences, Healthcare Management, Trident University (cum laude). Board member, Homeland Security Foundation of America
+        (since Sep 2023).
+      </p>
+    </section>
+
+    <StartProjectCta />
   </div>
 </template>

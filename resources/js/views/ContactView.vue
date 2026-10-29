@@ -13,6 +13,7 @@ const form = reactive({
   name: '',
   email: '',
   message: '',
+  website: '',
 })
 
 async function submit() {
@@ -37,6 +38,7 @@ async function submit() {
     form.name = ''
     form.email = ''
     form.message = ''
+    form.website = ''
   } catch {
     error.value = 'Network error. Try emailing us directly.'
   } finally {
@@ -70,7 +72,11 @@ async function submit() {
         <a :href="`mailto:${email}`" class="text-accent hover:underline">{{ email }}</a>
       </p>
 
-      <form v-if="!sent" class="space-y-5" @submit.prevent="submit">
+      <form v-if="!sent" class="relative space-y-5" @submit.prevent="submit">
+        <div class="sr-only" aria-hidden="true">
+          <label for="website">Website</label>
+          <input id="website" v-model="form.website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
         <div>
           <label for="name" class="block text-sm font-medium text-neutral-300">Name</label>
           <input
