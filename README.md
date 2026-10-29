@@ -46,13 +46,19 @@ npx wrangler pages dev dist
 
 ## Deploy
 
-Connect the GitHub repo to **Cloudflare Pages** (build command: `npm run build`, output directory: `dist`). Set environment variables in the Cloudflare dashboard:
+Connect the GitHub repo to **Cloudflare Pages** (build command: `npm run build`, output directory: `dist`).
+
+Set **Production** environment variables in the **Cloudflare dashboard** (Workers & Pages → your project → Settings → Environment variables):
 
 - `RESEND_API_KEY`
 - `CONTACT_TO`
 - `RESEND_FROM` — e.g. `Radiance Lux <contact@radiancelux.tech>` after **radiancelux.tech** is verified in Resend (`onboarding@resend.dev` only sends to the Resend account owner)
 
+GitHub Environment secrets do **not** apply to Pages Functions; use Cloudflare only.
+
 Do not commit secrets.
+
+Step-by-step DNS, Resend, and custom domain checklist: **[docs/GO_LIVE.md](docs/GO_LIVE.md)**.
 
 ## Résumé PDF
 

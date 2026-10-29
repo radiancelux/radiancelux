@@ -50,6 +50,11 @@ function validationErrors(body: Record<string, unknown>): Record<string, string[
   return Object.keys(errors).length ? errors : null;
 }
 
+/** Accept pasted dashboard values like `RESEND_FROM: Name <email@domain>`. */
+function normalizeResendFrom(raw: string): string {
+  return raw.trim().replace(/^RESEND_FROM\s*[:=]\s*/i, '').trim();
+}
+
 export async function onRequestPost(context: { request: Request; env: Env }): Promise<Response> {
   const { request, env } = context;
 
@@ -82,7 +87,10 @@ export async function onRequestPost(context: { request: Request; env: Env }): Pr
     return Response.json({ message: 'Failed to send message.' }, { status: 500 });
   }
 
-  const from = env.RESEND_FROM;
+  const from = normalizeResendFrom(env.RESEND_FROM);
+  if (!from) {
+    return Response.json({ message: 'Failed to send message.' }, { status: 500 });
+  }
   const subject = 'Radiance Lux contact: ' + message.slice(0, 50);
   const text = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
 
