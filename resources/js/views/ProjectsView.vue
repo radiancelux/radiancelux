@@ -18,8 +18,11 @@ const openSourceProjects = ref<OpenSourceProject[]>(projectsFallback as OpenSour
 const privateProjects = [
   {
     name: 'VerifyChain.AI',
+    hook: 'Prove a document existed, unchanged, and who signed off on it, without exposing the document itself.',
     description:
-      'Content provenance with SHA-256 fingerprints, Ed25519 identities, and a Merkle ledger that issues certificates and badges. Go plus Vue 3/TS/Pinia.',
+      'When several parties sign or approve a document, there\'s rarely a neutral, tamper-evident record of what was approved and when. VerifyChain records only a cryptographic fingerprint of each document, never its contents, supports multi-party sign-off, and lets anyone verify a document against its record.',
+    status: 'In development',
+    tags: ['TypeScript', 'Vue'],
   },
 ]
 
@@ -40,7 +43,8 @@ onMounted(async () => {
     <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
       <h1 class="text-3xl font-bold text-white sm:text-4xl">Projects</h1>
       <p class="mt-4 text-neutral-400">
-        Open-source tools we build in the open, plus a small set of private work we describe without linking until it is ready to share.
+        Things I build in the open, and a few private projects I can describe without linking yet. Projects are the centerpiece of this
+        site — start here.
       </p>
 
       <section class="mt-12">
@@ -88,7 +92,18 @@ onMounted(async () => {
             class="rounded-xl border border-surface-700 bg-surface-800/50 p-6"
           >
             <h3 class="text-lg font-semibold text-neutral-200">{{ project.name }}</h3>
+            <p class="mt-2 text-sm font-medium text-neutral-300">{{ project.hook }}</p>
             <p class="mt-2 text-sm text-neutral-400">{{ project.description }}</p>
+            <p class="mt-3 text-xs font-medium uppercase tracking-wider text-neutral-500">{{ project.status }}</p>
+            <ul class="mt-3 flex flex-wrap gap-2">
+              <li
+                v-for="tag in project.tags"
+                :key="tag"
+                class="rounded-full border border-surface-600 px-2.5 py-0.5 text-xs text-neutral-400"
+              >
+                {{ tag }}
+              </li>
+            </ul>
           </article>
         </div>
       </section>
