@@ -40,7 +40,7 @@ async function submit() {
     form.message = ''
     form.website = ''
   } catch {
-    error.value = 'Network error. Try emailing us directly.'
+    error.value = 'Network error. Try emailing me directly.'
   } finally {
     sending.value = false
   }
@@ -51,7 +51,8 @@ async function submit() {
   <div class="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-16">
     <h1 class="text-3xl font-bold text-white sm:text-4xl">Contact</h1>
     <p class="mt-4 text-neutral-400">
-      Have a project or a problem? Schedule a 15‑min call or send a message. We’re based in San Antonio, work remotely, and typically respond within one business day.
+      Have a project or a problem? Book a short call or send a message. I am based in the San Antonio metro, work remotely, and typically
+      respond within one business day.
     </p>
 
     <div v-if="calendlyUrl" class="mt-8">
@@ -66,7 +67,7 @@ async function submit() {
     </div>
 
     <div class="mt-10 rounded-xl border border-surface-700 bg-surface-800/50 p-6 sm:p-8">
-      <h2 class="text-lg font-semibold text-white">Or send us a message</h2>
+      <h2 class="text-lg font-semibold text-white">Or send a message</h2>
       <p class="mt-1 mb-6 text-sm text-neutral-500">
         Prefer email? Write to
         <a :href="`mailto:${email}`" class="text-accent hover:underline">{{ email }}</a>
@@ -122,7 +123,7 @@ async function submit() {
 
       <div v-else class="rounded-lg bg-accent-muted p-4 text-accent">
         <p class="font-medium">Message sent.</p>
-        <p class="mt-1 text-sm">We’ll get back to you soon.</p>
+        <p class="mt-1 text-sm">I'll get back to you soon.</p>
       </div>
     </div>
   </div>

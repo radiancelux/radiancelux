@@ -43,10 +43,10 @@ onUnmounted(() => {
           {{ item.label }}
         </RouterLink>
         <RouterLink
-          to="/contact"
+          to="/projects"
           class="rounded-lg bg-accent px-3 py-1.5 text-sm font-medium text-surface-900 transition hover:bg-accent-hover"
         >
-          Start a project
+          See my work
         </RouterLink>
       </nav>
 
@@ -76,11 +76,11 @@ onUnmounted(() => {
           {{ item.label }}
         </RouterLink>
         <RouterLink
-          to="/contact"
+          to="/projects"
           class="rounded bg-accent px-3 py-2 text-center text-sm font-medium text-surface-900"
           @click="close"
         >
-          Start a project
+          See my work
         </RouterLink>
       </div>
     </div>
