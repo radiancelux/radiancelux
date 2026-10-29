@@ -1,5 +1,6 @@
 # Cloudflare Pages (local `wrangler pages dev`)
 RESEND_API_KEY=
 CONTACT_TO=
-# Optional: verified sender on your domain (defaults to Resend onboarding address)
-# RESEND_FROM=Radiance Lux <contact@radiancelux.tech>
+# Required in production: verify radiancelux.tech in Resend first.
+# onboarding@resend.dev only delivers to the Resend account owner.
+RESEND_FROM=Radiance Lux <contact@radiancelux.tech>

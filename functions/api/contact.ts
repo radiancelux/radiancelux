@@ -1,12 +1,13 @@
 interface Env {
   RESEND_API_KEY: string;
   CONTACT_TO: string;
-  RESEND_FROM?: string;
+  RESEND_FROM: string;
 }
 
 const RATE_LIMIT_WINDOW_SECONDS = 60;
 const MAX_REQUESTS_PER_WINDOW = 5;
 
+/** Best-effort limit via Cache API (per-PoP, not global). Enough for a portfolio contact form. */
 async function isRateLimited(request: Request): Promise<boolean> {
   const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown';
   const cache = caches.default;
@@ -77,11 +78,11 @@ export async function onRequestPost(context: { request: Request; env: Env }): Pr
   const email = (body.email as string).trim();
   const message = (body.message as string).trim();
 
-  if (!env.RESEND_API_KEY || !env.CONTACT_TO) {
+  if (!env.RESEND_API_KEY || !env.CONTACT_TO || !env.RESEND_FROM) {
     return Response.json({ message: 'Failed to send message.' }, { status: 500 });
   }
 
-  const from = env.RESEND_FROM ?? 'Radiance Lux Contact <onboarding@resend.dev>';
+  const from = env.RESEND_FROM;
   const subject = 'Radiance Lux contact: ' + message.slice(0, 50);
   const text = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
 

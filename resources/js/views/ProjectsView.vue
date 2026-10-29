@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import StartProjectCta from '../components/StartProjectCta.vue'
+import projectsFallback from '../data/openSourceProjects.json'
 
 interface OpenSourceProject {
   name: string
@@ -8,11 +10,10 @@ interface OpenSourceProject {
   stack: string
   stars?: number
   whitepaper?: string
+  repo?: string
 }
 
-import projectsJson from '../data/openSourceProjects.json'
-
-const openSourceProjects = projectsJson as OpenSourceProject[]
+const openSourceProjects = ref<OpenSourceProject[]>(projectsFallback as OpenSourceProject[])
 
 const privateProjects = [
   {
@@ -21,6 +22,17 @@ const privateProjects = [
       'Content provenance with SHA-256 fingerprints, Ed25519 identities, and a Merkle ledger that issues certificates and badges. Go plus Vue 3/TS/Pinia.',
   },
 ]
+
+onMounted(async () => {
+  try {
+    const res = await fetch('/open-source-projects.json')
+    if (res.ok) {
+      openSourceProjects.value = await res.json()
+    }
+  } catch {
+    /* keep bundled fallback */
+  }
+})
 </script>
 
 <template>

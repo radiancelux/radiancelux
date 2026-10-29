@@ -30,7 +30,7 @@ Output goes to `dist/`. GitHub Actions runs the same on pull requests and pushes
 
 ## Local preview (static + Functions)
 
-1. Copy `.dev.vars.example` to `.dev.vars` and set `RESEND_API_KEY` and `CONTACT_TO`.
+1. Copy `.dev.vars.example` to `.dev.vars` and set `RESEND_API_KEY`, `CONTACT_TO`, and `RESEND_FROM`.
 2. Build and run Pages dev:
 
 ```bash
@@ -50,7 +50,7 @@ Connect the GitHub repo to **Cloudflare Pages** (build command: `npm run build`,
 
 - `RESEND_API_KEY`
 - `CONTACT_TO`
-- Optional: `RESEND_FROM` (verified sender domain)
+- `RESEND_FROM` — e.g. `Radiance Lux <contact@radiancelux.tech>` after **radiancelux.tech** is verified in Resend (`onboarding@resend.dev` only sends to the Resend account owner)
 
 Do not commit secrets.
 

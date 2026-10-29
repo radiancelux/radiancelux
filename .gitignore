@@ -15,6 +15,7 @@
 /auth.json
 /node_modules
 /dist
+/public/open-source-projects.json
 /public/build
 /public/hot
 /vendor
