@@ -16,10 +16,10 @@
     "stars": 0
   },
   {
-    "name": "botVault",
-    "repo": "southline-tech/botvault",
-    "url": "https://github.com/southline-tech/botvault",
-    "description": "Drive-backed MCP vault that gives bots shared, attributable project state, with per-bot tokens and version history.",
+    "name": "BotOptimizer",
+    "repo": "southline-tech/botoptimizer",
+    "url": "https://github.com/southline-tech/botoptimizer",
+    "description": "Open-source MCP server and CLI that cuts wasted bot tokens: usage logging, charts, spike watches, waste hints and a daily digest with a weekly-limit warning, with shared bot memory built in.",
     "stack": "Go",
     "stars": 0
   },
