@@ -4,3 +4,7 @@ CONTACT_TO=
 # Required in production: verify radiancelux.tech in Resend first.
 # Value only (no "RESEND_FROM:" prefix). onboarding@resend.dev only delivers to the account owner.
 RESEND_FROM=Radiance Lux <contact@radiancelux.tech>
+# swarmDraft in-app feedback (falls back to CONTACT_TO when empty)
+SWARMDRAFT_FEEDBACK_TO=
+# Optional override for feedback sender (defaults to RESEND_FROM)
+SWARMDRAFT_FEEDBACK_FROM=

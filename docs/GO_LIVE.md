@@ -17,8 +17,10 @@ Set these under **Workers & Pages → radiancelux → Settings → Environment v
 | `RESEND_API_KEY` | `re_…` | From [Resend API keys](https://resend.com/api-keys) |
 | `CONTACT_TO` | `radiancelux@gmail.com` | Inbox for contact form submissions |
 | `RESEND_FROM` | `Radiance Lux <contact@radiancelux.tech>` | Must use a **verified** domain in Resend |
+| `SWARMDRAFT_FEEDBACK_TO` | e.g. dedicated inbox | **Set in production** if swarmDraft feedback should not use `CONTACT_TO`; omit only if both may share one inbox |
+| `SWARMDRAFT_FEEDBACK_FROM` | _(local dev only)_ | Optional override in `.dev.vars`; **do not set in production** — feedback mail uses `RESEND_FROM` |
 
-**Important:** GitHub **Environment** secrets/variables do **not** reach Cloudflare Pages Functions. Only variables in the Cloudflare Pages project apply to `/api/contact`.
+**Important:** GitHub **Environment** secrets/variables do **not** reach Cloudflare Pages Functions. Only variables in the Cloudflare Pages project apply to `/api/contact` and `/api/swarmdraft-feedback`.
 
 When pasting `RESEND_FROM`, use the value only — not `RESEND_FROM: …` as the whole string. The contact function strips a mistaken prefix if present.
 
@@ -54,6 +56,7 @@ If the zone is on Cloudflare, activation is usually automatic after DNS propagat
 - [ ] Deep links work (`/work`, `/projects`, `/contact`, résumé PDF)
 - [ ] `GET /api/health` → `{"status":"ok"}`
 - [ ] Contact form returns success and mail arrives at `CONTACT_TO`
+- [ ] `POST /api/swarmdraft-feedback` returns `202` with valid desktop client header (smoke after deploy)
 - [ ] Old hosting provider can be decommissioned
 
 ## 6. Local test with production-like env
