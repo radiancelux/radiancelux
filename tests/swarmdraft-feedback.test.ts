@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { onRequestPost } from "./swarmdraft-feedback.ts";
+import { onRequestPost } from "../functions/api/swarmdraft-feedback.ts";
 
 const installId = "550e8400-e29b-41d4-a716-446655440000";
 
@@ -109,6 +109,7 @@ describe("swarmdraft-feedback onRequestPost", () => {
         expect(url).toBe("https://api.resend.com/emails");
         const headers = init.headers as Record<string, string>;
         expect(headers.Authorization).toBe("Bearer re_test_key_abc");
+        expect(headers["Content-Type"]).toBe("application/json");
         expect(headers["Idempotency-Key"]).toBe(`${installId}:nonce-42`);
 
         const payload = JSON.parse(init.body as string);

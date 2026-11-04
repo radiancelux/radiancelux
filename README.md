@@ -30,7 +30,7 @@ Output goes to `dist/`. GitHub Actions runs the same on pull requests and pushes
 
 ## Local preview (static + Functions)
 
-1. Copy `.dev.vars.example` to `.dev.vars` and set `RESEND_API_KEY`, `CONTACT_TO`, and `RESEND_FROM`. Optionally set `SWARMDRAFT_FEEDBACK_TO` (defaults to `CONTACT_TO`) and `SWARMDRAFT_FEEDBACK_FROM`.
+1. Copy `.dev.vars.example` to `.dev.vars` and set `RESEND_API_KEY`, `CONTACT_TO`, and `RESEND_FROM`. Optionally set `SWARMDRAFT_FEEDBACK_TO` for a dedicated feedback inbox (defaults to `CONTACT_TO`). `SWARMDRAFT_FEEDBACK_FROM` is an optional local sender override only; production uses `RESEND_FROM`.
 2. Build and run Pages dev:
 
 ```bash
@@ -53,8 +53,8 @@ Set **Production** environment variables in the **Cloudflare dashboard** (Worker
 - `RESEND_API_KEY`
 - `CONTACT_TO`
 - `RESEND_FROM` — e.g. `Radiance Lux <contact@radiancelux.tech>` after **radiancelux.tech** is verified in Resend (`onboarding@resend.dev` only sends to the Resend account owner)
-- `SWARMDRAFT_FEEDBACK_TO` — inbox for swarmDraft app feedback (optional; falls back to `CONTACT_TO`)
-- `SWARMDRAFT_FEEDBACK_FROM` — optional sender override for feedback mail
+- `SWARMDRAFT_FEEDBACK_TO` — inbox for swarmDraft app feedback (optional in Cloudflare; falls back to `CONTACT_TO` when unset). Set this in production if feedback should not land in the contact inbox.
+- `SWARMDRAFT_FEEDBACK_FROM` — optional sender override for local dev only (not set in production; mail uses `RESEND_FROM`)
 
 GitHub Environment secrets do **not** apply to Pages Functions; use Cloudflare only.
 

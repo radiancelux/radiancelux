@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { onRequestPost } from "./contact.ts";
+import { onRequestPost } from "../functions/api/contact.ts";
 
 const env = {
     RESEND_API_KEY: "re_contact_key",
@@ -87,6 +87,9 @@ describe("contact onRequestPost regression", () => {
         expect(res.status).toBe(200);
         expect(fetchMock).toHaveBeenCalledOnce();
         const init = fetchMock.mock.calls[0][1] as RequestInit;
+        const headers = init.headers as Record<string, string>;
+        expect(headers["Content-Type"]).toBe("application/json");
+        expect(headers.Authorization).toBe("Bearer re_contact_key");
         const payload = JSON.parse(init.body as string);
         expect(payload.to).toEqual(["contact@example.com"]);
         expect(payload.reply_to).toBe("b@example.com");
